@@ -1,0 +1,59 @@
+.topo{
+	background-color: #535353;
+	height: 30px;
+	width: 100%;
+	line-height: 30px;
+	font-size: 15px;
+}
+.header_left{
+	height: 30px;
+	float: left;
+	margin-left: 100px;
+}
+.header_left .qq{
+	background: url('../image/qq.jpg') no-repeat 0px -3.5px;
+	padding-left: 22px;
+	/* margin-right: 5px; */
+}
+.header_right{
+	height: 30px;
+	float: right;
+	margin-right: 100px;
+}
+a{
+	margin-right: 5px;
+	text-decoration:none;
+}
+a:link, a:visited, a:active{
+	color:#fff;
+	}	
+a:hover {
+	color:#fff;
+	background-color: #C3C3C3;
+}
+.language{
+	font: 12px;
+	color: #fff;
+}
+.menu{
+	height: 90px;
+	border: 1px solid red;
+}	
+.menu_left{
+	height: 100%;
+	width: 30%;
+	float: left;
+	font-family: "Microsoft YaHei";
+	font-size: 30px;
+	color: #0A8ACB;
+	text-shadow:5px 2px 6px #0A8ACB;
+	text-align:center;
+	line-height: 90px;
+	border: 1px solid green;
+}
+.menu_right{
+	height: 100%;
+	width: 68%;
+	float: right;
+	border: 1px solid yellow;
+}

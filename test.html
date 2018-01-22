@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    var out = [];
+    function combination(arr, nLen, m, out, outLen)  
+    {  
+        if(m == 0)  
+        {  
+            // for (int j = 0; j < outLen; j++)  
+            //     cout << out[j] << "\t";  
+            // cout << endl;  
+
+            console.log(out)
+      
+            return;  
+        }  
+      
+        for (var i = nLen; i >= m; --i)  //从后往前依次选定一个  
+        {  
+            out[m-1] = arr[i-1]; //选定一个后  
+            combination(arr,i-1,m-1,out,outLen); // 从前i-1个里面选取m-1个进行递归  
+        }  
+    }  
+  
+    function printCombination(arr, nLen, m)  
+    {  
+        if(m > nLen)return;  
+ 
+        combination(arr,nLen,m,out,m);   
+    }
+
+    printCombination([1,2,3,4], 4, 2)
+
+</script>
+</html>

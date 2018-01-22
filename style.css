@@ -1,0 +1,25 @@
+.topo{
+	/* background-color: #535353; */
+	height: 30px;
+	width: 100%;
+	font-size: 20px;
+	color: #000;
+}
+.header_left{
+	height: 30px;
+	width: 40%;
+	float: left;
+	margin-left: 10px;
+	font-size: 20px;
+	color: #000;
+	background-color: red;
+}
+.header_right{
+	height: 30px;
+	width: 40%;
+	float: right;
+	margin-right: 10px;
+	font-size: 20px;
+	color: #000;
+	background-color: green;
+}
