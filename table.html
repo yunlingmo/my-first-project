@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <table border="1">
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+            </tr>
+            <tr>
+                <td id='傻狗' onclick=change(this.id)>傻狗</td>
+                <td id='6' onclick=change(this.id)>6</td>
+            </tr>
+            <tr>
+                <td id='傻鳄' onclick=change(this.id)>傻鳄</td>
+                <td id='4' onclick=change(this.id)>4</td>
+            </tr>
+        </table>
+        <button type="button" onclick=showAllTestbed()>Click Me!</button>
+    </body>
+    <script type="text/javascript">
+        var all_testbed={}
+        function change(curobj) {
+            var Obj=null;
+            Obj=document.getElementById(curobj);
+            if (Obj.style.backgroundColor=="red")
+                {
+                    Obj.style.backgroundColor="white";
+                    all_testbed[Obj.id]=false
+                }
+            else{
+                Obj.style.backgroundColor="red";
+                all_testbed[Obj.id]=true
+            }
+        }
+        function showAllTestbed() {
+            var arr=[]
+            for(var i in all_testbed){
+                if (all_testbed[i]==true){
+                    arr.push(i)
+                }
+            }
+            alert(arr.join(','))
+        }
+        // console.log(all_testbed)
+    </script> 
+</html>
