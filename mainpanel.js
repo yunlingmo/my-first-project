@@ -44,15 +44,21 @@ var tbar=[
 	{xtype:"button" , text: "测试床一键式检查"},
 	{xtype:"button" ,text: "测试床一键式检查"},
 	{xtype:"button" ,text: "测试床一键式检查"},formPanel,aa("idle"),aa("in_use"),aa("Faulty")
-]
-
+];
+var divClickAction=function(event){
+	console.log("ddddddddddd")
+	console.log(event.srcElement)
+	console.log(event.target)
+	console.log(event)
+	console.log(event.path[0].id)
+};
 var topPanel = Ext.create('Ext.panel.Panel',{
 	id:'topPanelId',
 	width:'90%',
 	height:'50%',
 	region:'north',
 	border:true,
-	html:'<div class="testbedContain" id="testbedContainId"><div id="tb1"></div><div id="tb2"></div><div id="tb3"></div><div id="tb4"></div><div id="tb5"></div><div id="tb6"></div><div id="tb7"></div></div>'
+	html:'<div class="testbedContain" id="testbedContainId"><div id="tb1" ><input type="checkbox" value="" class="testbedbox" /></div><div id="tb2"><input type="checkbox" value="" class="testbedbox" /></div><div id="tb3"><input type="checkbox" value="" class="testbedbox" /></div><div id="tb4"><input type="checkbox" value="" class="testbedbox" /></div><div id="tb5"><input type="checkbox" value="" class="testbedbox" /></div><div id="tb6"><input type="checkbox" value="" class="testbedbox" /></div><div id="tb7"></div><input type="checkbox" value="" class="testbedbox" /></div>'
 })
 var centerPanel = Ext.create('Ext.panel.Panel',{
 	id:'centerPanelId',
@@ -70,8 +76,39 @@ Ext.onReady(function() {
 		width: window.innerWidth-40,
 		items:[topPanel,centerPanel],
 		tbar:tbar,
+		listeners:{
+		    afterrender:{
+		       // element:'dom',
+		        fn: function(){
+			        console.log("tttttt");
+			        listenersEvent()
+		    	}
+		      
+		   }
+		}
 	});
 });
+
+var listenersEvent= function(){
+	console.log("ffffffffffff")
+	checktestbed={}
+	$('.testbedContain').click(function(){
+		console.log($(event.srcElement).context.checked)
+		console.log($(event.srcElement).parent()[0].id)
+		testbedselect=$(event.srcElement).context.checked
+		testbedid=$(event.srcElement).parent()[0].id
+		checktestbed[testbedid]=testbedselect
+		// console.log($('#'+testbedid).css('display'))
+		if(testbedselect){
+			$('#'+testbedid+' input').css('display','block')	
+		}else{
+			$('#'+testbedid+' input').css('display','none')
+		}
+		console.log(checktestbed)
+	});
+
+}
+
 window.onload=function(){ 
   window.onresize = function(){
 	Ext.getCmp('mainPanelId').setWidth(window.innerWidth-40);

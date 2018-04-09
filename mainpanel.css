@@ -99,6 +99,12 @@
   	margin-bottom: 20px;
 	float: left;
 }
+.testbedContain input{
+	display: none;
+}
+.testbedContain>div:hover input{
+	display: block !important;
+} 
 
 @media (max-width: 1420px){
 	.testbedContain >div{
