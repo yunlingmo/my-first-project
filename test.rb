@@ -1,65 +1,14 @@
-boardHash = {"A" => [11,22,33,44],"B" =>[22,33,55,66],"C" =>[99,55,33,77]}
-boardArr = []
-boardHash.each{|key,value|
-	boardArr << key
+testbed_hstate={"12"=>"health","13"=>"unhealth"}
+tastbed_utate={"12"=>"idle","13"=>"inuse"}
+testbed_info=[{"id"=>"12","name"=>"testbed2"},{"id"=>"13","name"=>"testbed3"},{"id"=>"14","name"=>"testbed4"}]
+testbde_hash={}
+testbde_arr=[]
+testbed_info.each{|testbed|
+	testbde_hash["testbed_id"]=testbed["id"]
+	testbde_hash["testbde_name"]=testbed["name"]
+	testbde_hash["testbde_hstate"]=testbed_hstate[testbed["id"]]
+	testbde_hash["testbde_utate"]=tastbed_utate[testbed["id"]]
+	testbde_arr<<testbde_hash
 }
-p boardArr
-boardLength = boardArr.length
+p testbde_arr
 
-@arr = []
-
-def combination(arr, nLen, m, out, outLen)
-
-		arr1 = []
-	
-        if m == 0
-
-           p out
-
-
-           @arr << out.clone
-      
-           # return arr1
-           return
-
-        end
-
-        i = nLen
-
-        while i >= m
-        	out[m-1] = arr[i-1]
-            combination(arr,i-1,m-1,out,outLen)
-            i = i-1
-        end
-end
-
-def printCombination(arr, nLen, m)
-	if m > nLen 
-		return
-	end
-	out = []
-	combination(arr,nLen,m,out,m); 
-end
-
-printCombination(boardArr, boardLength, 3)
-
-p @arr
-
-hash_obj = {}
-@arr.each{|arr1|
-	
-	str = ""
-	obj = []
-	obj1 = boardHash[arr1[0]]
-	# str = 
-	arr1.each{|arr2|
-		# obj1 = boardHash[arr2]
-		obj1 = obj1 & boardHash[arr2]
-		str += arr2
-	}
-	if !obj1.empty?
-		hash_obj[str] = obj1
-	end
-	
-}
-p hash_obj
